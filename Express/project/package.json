@@ -1,0 +1,34 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Learning node, express and mongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js",
+    "debug": "ndb server.js "
+  },
+  "author": "Joy",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
+    "slugify": "^1.6.6",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "ndb": "^1.1.5",
+    "prettier": "^2.8.8"
+  }
+}

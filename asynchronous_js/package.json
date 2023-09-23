@@ -1,0 +1,15 @@
+{
+  "name": "asynchronous_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joy",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.22",
+    "superagent": "^8.0.9"
+  }
+}

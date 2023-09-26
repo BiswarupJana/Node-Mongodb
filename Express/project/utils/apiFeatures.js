@@ -33,13 +33,15 @@ class APIFeatures {
 
   limitFields() {
     // 3) Field limiting
-    if (this.querySting.fields) {
-      const fields = this.querySting.fields.split(',').join(' ');
-      this.query = this.query.select(fields);
-    } else {
-      this.query = this.query.select('-__v');
-    }
-    return this;
+    
+      if (this.querySting.fields) {
+        const fields = this.querySting.fields.split(',').join(' ');
+        this.query = this.query.select(fields);
+      } else {
+        this.query = this.query.select('-__v');
+      }
+      return this;
+    
   }
 
   paginate() {

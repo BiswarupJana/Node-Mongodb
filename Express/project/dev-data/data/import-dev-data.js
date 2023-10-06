@@ -10,7 +10,9 @@ const DB = process.env.DATABASE.replace(
 );
 mongoose
   // .connect(process.env.DATABASE_LOCAL)
-  .connect(DB)
+  .connect(DB, {
+    useNewUrlParser: true, 
+  })
   .then(() => console.log('DB connection established !'))
   .catch((error) => {
     throw new Error(error.message);

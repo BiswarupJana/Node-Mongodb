@@ -10,6 +10,7 @@ const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 const tourRouter = require("./routes/tourRoutes");
 const userRouter = require("./routes/userRoutes");
+const reviewRouter = require("./routes/reviewRoutes");
 
 const app = express();
 // 1) GLOBAL Middleware
@@ -32,7 +33,7 @@ const limiter = rateLimit({
 app.use("/api", limiter);
 
 // Body parser, reading data from body into req.body
-app.use(express.json());
+app.use(express.json({limit:'10kb'}));
 
 // Data sanitizaton against NOSQL query injection
 app.use(mongoSanitize());
@@ -63,23 +64,16 @@ app.use((req, res, next) => {
   next();
 });
 
-// 2) RouteHandlers
 
-// app.get('/api/v1/tours', getAllTours);
-// app.post('/api/v1/tours', createTour);
-// app.get('/api/v1/tours/:id', getTour);
-// app.patch('/api/v1/tours/:id', updateTour);
-// app.delete('/api/v1/tours/:id', deleteTour);
 
 // 3) Routes
 
 app.use("/api/v1/tours", tourRouter);
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/reviews", reviewRouter);
 
 app.all("*", (req, res, next) => {
-  // const err = new Error(`Can't find ${req.originalUrl} on the Server!`);
-  // err.status = 'fail';
-  // err.statusCode = 404;
+
   next(new AppError(`Can't find ${req.originalUrl} on the Server!`, 404));
 });
 
